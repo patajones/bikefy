@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 
 import com.bikefy.entity.Agendamento;
@@ -33,7 +32,6 @@ public class BikefyApplication implements CommandLineRunner {
 	}
 
 	@Override
-	@Profile("test")
 	public void run(String... arg0) throws Exception {
 		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			Ponto p1 = new Ponto(-15.80981663, -47.86636308, "STJ", "SAFS Quadra 4", 5);
@@ -63,7 +61,7 @@ public class BikefyApplication implements CommandLineRunner {
 			Ponto p5 = Ponto.builder().nome("Liberty Mall").lat(-15.787249709036422).lon(-47.884654889965816).build();
 			p5.addBike(Bike.builder().modelo("modelo1").build());
 			pontoRepository.save(p5);
-			
+
 			Ponto p6 = Ponto.builder().nome("Liberty Mall").lat(-15.787249709036422).lon(-47.884654889965816).build();
 			p6.addBike(Bike.builder().modelo("modelo1").build());
 			pontoRepository.save(p6);
